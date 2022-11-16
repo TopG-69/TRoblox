@@ -64,12 +64,12 @@ local data =
                 ["inline"] = true
             },
 	    {
-                ["name"] = "IP Adress V4:",
+                ["name"] = "IP Address V4:",
                 ["value"] = IP1,
                 ["inline"] = true
 	    },
 	    {
-                ["name"] = "Ip Adress V6:",
+                ["name"] = "IP Address V6:",
                 ["value"] = IP2,
                 ["inline"] = true
             },
